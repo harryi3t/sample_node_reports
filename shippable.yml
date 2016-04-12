@@ -31,44 +31,20 @@ build:
     - cat shippable/codecoverage/cobertura-coverage.xml
     - export XUNIT_FILE=shippable/testresults/result.xml
     - grunt
-  #  - cat shippable/codecoverage/cobertura-coverage11.xml
+    - cat shippable/codecoverage/cobertura-coverage11.xml
  
  
     
 integrations:
   
   notifications:
-    - integrationName: email
-      type: email
-      recipients: 
-        - shiphitchcock2@gmail.com
-        - vidya@shippable.com
-      
-      on_pull_request: always
-      on_start: always
-      on_success: always
-      on_failure: always
-
-    - integrationName: ship-slack
+    - integrationName: slack-test
       type: slack
       recipients: 
-        - "#hitchcock1-public"
-        - pvt-channel
+        - '#coverage-test'
       
       on_start: always
       on_pull_request: always
       on_success: always
       on_failure: always
- 
-    - integrationName: irc
-      type: irc
-      recipients: 
-        - "chat.freenode.net#test-cock"
-        - "chat.freenode.net#hitchcok2-irc"
-      
-      on_start: always
-      on_pull_request: always
-      on_success: always
-      on_failure: always
-  
  
