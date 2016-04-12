@@ -11,11 +11,11 @@ archive: true
 env:
   - FOO=FUBU
 
- 
+
 
 build:
   #cache: true
-  
+
   ci:
     - echo "Hello, World!"
     - env
@@ -31,20 +31,21 @@ build:
     - cat shippable/codecoverage/cobertura-coverage.xml
     - export XUNIT_FILE=shippable/testresults/result.xml
     - grunt
-    - cat shippable/codecoverage/cobertura-coverage11.xml
- 
- 
-    
+    - ls shippable/testresults
+    - ls shippable/codecoverage
+    - du -h shippable/testresults
+
+
+
 integrations:
-  
+
   notifications:
     - integrationName: slack-test
       type: slack
-      recipients: 
+      recipients:
         - '#coverage-test'
-      
+
       on_start: always
       on_pull_request: always
       on_success: always
       on_failure: always
- 
