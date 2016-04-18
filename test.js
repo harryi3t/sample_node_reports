@@ -8,30 +8,30 @@ describe("Index", function () {
     superagent.get("http://localhost:3000/")
       .end(function (e, res) {
         (e === null).should.equal(true);
-        res.text.should.equal("Hy buddy!");
+        res.text.should.equal("Hey buddy!");
         done();
       });
   });
 });
 
-describe("Index", function () {
-  it("renders HTML", function (done) {
-    superagent.get("http://localhost:3000/")
-      .end(function (e, res) {
-        (e === null).should.equal(true);
-        res.text.should.equal("He buddy!");
-        done();
-      });
-  });
-});
-
-describe("Index", function () {
-  it("renders HTML", function (done) {
-    superagent.get("http://localhost:3000/")
-      .end(function (e, res) {
-        (e === null).should.equal(true);
-        res.text.should.equal("Hy buddy!");
-        done();
-      });
-  });
-});
+// describe("Index", function () {
+//   it("renders HTML", function (done) {
+//     superagent.get("http://localhost:3000/")
+//       .end(function (e, res) {
+//         (e === null).should.equal(true);
+//         res.text.should.equal("ey buddy!");
+//         done();
+//       });
+//   });
+// });
+//
+// describe("Index", function () {
+//   it("renders HTML", function (done) {
+//     superagent.get("http://localhost:3000/")
+//       .end(function (e, res) {
+//         (e === null).should.equal(true);
+//         res.text.should.equal("Hey buddy!");
+//         done();
+//       });
+//   });
+// });
