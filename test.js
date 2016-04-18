@@ -11,6 +11,11 @@ describe("Index", function () {
         res.text.should.equal("Hey buddy!");
         done();
       });
+    superagent.get("http://localhost:3000/badge")
+      .end(function (e, res) {
+        console.log(res);
+        done();
+      });
   });
 });
 
