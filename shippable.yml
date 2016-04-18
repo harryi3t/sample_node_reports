@@ -1,50 +1,23 @@
-# Language setting
 language: node_js
 
-# Version number
 node_js:
-  - 0.11
- # - 5.0
-
-archive: true
-
-env:
-  - FOO=FUBU
-
-
+  - 0.10
 
 build:
-  #cache: true
-
   ci:
-    - echo "Hello, World!"
-    - env
-    - echo $PATH
-    - reports --help
-  #  - sudo apt-get update
-    - node --version
-    - mkdir -p shippable/testresults
-    #- mkdir -p shippable/codecoverage
-    - npm install
-    #- ./node_modules/.bin/istanbul cover grunt -- -u tdd
-    #- ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
-    #- cat shippable/codecoverage/cobertura-coverage.xml
-    - export XUNIT_FILE=shippable/testresults/result.xml
-    - grunt
-    - ls shippable/testresults
-    #- ls shippable/codecoverage
-    - du -h shippable/testresults
-
-
+    # -m  Attempt to continue if archives are unlocatable
+    # -y  Assume Yes to all queries and do not prompt
+    # -qq No output except for errors
+    - sudo apt-get update -my
+    - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
+    - npm install gh-badges
 
 integrations:
-
   notifications:
     - integrationName: slack-test
       type: slack
       recipients:
-        - '#coverage-test'
-
+        - '#shield-test'
       on_start: always
       on_pull_request: always
       on_success: always
